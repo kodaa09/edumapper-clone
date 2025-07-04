@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: rgb(250, 248, 246);
+  --color-text-input: rgb(244 236 231);
+}
+
+body {
+  background: radial-gradient(
+      67.19% 72.73% at -14.76% 43.72%,
+      #ff6b364f 0,
+      #ff6b3600
+    ),
+    radial-gradient(61.74% 70.29% at 0 97.69%, #f577d580 0, #f577d500),
+    radial-gradient(84.36% 78.3% at 102.85% 105.47%, #8fbfffcc 0, #8fbfff00),
+    #f7f3f0;
+}
+
+@layer components {
+  .bg-text-input {
+    background-color: rgb(244 236 231);
+  }
+}
