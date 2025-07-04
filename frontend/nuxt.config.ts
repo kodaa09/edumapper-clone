@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   css: ["~/assets/css/tailwind.css"],
   routeRules: {
     "/api-proxy/**": {
-      proxy: { to: "http://edumapper.koodev.fr/api/**" },
+      proxy: { to: "http://preprod-edumapper.koodev.fr/api/**" },
     },
   },
 
