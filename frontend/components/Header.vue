@@ -16,15 +16,6 @@ const authStore = useAuthStore();
           />
         </NuxtLink>
       </h1>
-      <nav>
-        <ul>
-          <li>
-            <NuxtLink class="font-medium" to="/"
-              >Mes chances d'admission</NuxtLink
-            >
-          </li>
-        </ul>
-      </nav>
     </div>
     <div v-if="!authStore.user">
       <NuxtLink
