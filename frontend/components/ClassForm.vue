@@ -160,9 +160,12 @@ const onSubmit = handleSubmit(() => {
         Confirmer
       </button>
     </form>
-    <div v-if="useAdmissionStore()?.admission && !props.cardOpen">
-      {{ useAdmissionStore().admission?.classes?.name }}
-      {{ useAdmissionStore().admission?.classes?.bac }}
+    <div v-if="!props.cardOpen">
+      <p v-if="useAdmissionStore()?.admission?.classes">
+        {{ useAdmissionStore().admission?.classes?.name }} -
+        {{ useAdmissionStore().admission?.classes?.bac }}
+      </p>
+      <p class="text-sm text-gray-500" v-else>Aucune classe sélectionnée</p>
     </div>
   </div>
 </template>

@@ -12,5 +12,6 @@ router
     router.get('/auth/check', [UsersController, 'check']).use(middleware.auth())
 
     router.get('/schools', [SchoolsController, 'index'])
+    router.get('/schools/:id', [SchoolsController, 'show'])
   })
   .prefix('api')

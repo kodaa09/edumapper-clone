@@ -99,8 +99,9 @@ const resetForm = () => {
     <button
       type="submit"
       @click="onSubmit"
-      class="w-full rounded-full border border-gray-300 bg-white py-3 font-medium text-gray-700"
+      class="w-full rounded-full border border-gray-300 bg-white py-3 font-medium text-gray-700 cursor-pointer"
     >
+      <Icon name="mdi:loading" v-if="isLoading" />
       Inscrivez-vous
     </button>
   </form>

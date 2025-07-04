@@ -9,14 +9,29 @@ export function useSchool() {
     if (schools) return schools;
   }
 
+  async function show(id: number) {
+    const school = await $fetch<SchoolResponse>(
+      `${config.public.apiBase}/schools/${id}`
+    );
+
+    if (school) return school;
+  }
+
   return {
     index,
+    show,
   };
 }
 
 export type SchoolsResponse = {
   message: string;
   data: School[];
+  status: string;
+};
+
+export type SchoolResponse = {
+  message: string;
+  data: School;
   status: string;
 };
 
