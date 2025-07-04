@@ -10,9 +10,20 @@ export default defineNuxtConfig({
     "@vee-validate/nuxt",
   ],
   css: ["~/assets/css/tailwind.css"],
-  runtimeConfig: {
-    public: {
-      apiBase: "http://localhost:3333/api",
+  routeRules: {
+    "/api-proxy/**": {
+      proxy: { to: "http://edumapper.koodev.fr/api/**" },
     },
   },
+
+  runtimeConfig: {
+    public: {
+      apiBase: "/api-proxy",
+    },
+  },
+  // runtimeConfig: {
+  //   public: {
+  //     apiBase: "http://localhost:3333/api",
+  //   },
+  // },
 });
