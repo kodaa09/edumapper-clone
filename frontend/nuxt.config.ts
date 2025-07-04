@@ -10,20 +10,20 @@ export default defineNuxtConfig({
     "@vee-validate/nuxt",
   ],
   css: ["~/assets/css/tailwind.css"],
-  // routeRules: {
-  //   "/api-proxy/**": {
-  //     proxy: { to: "http://preprod-edumapper.koodev.fr/api/**" },
-  //   },
-  // },
-
-  // runtimeConfig: {
-  //   public: {
-  //     apiBase: "/api-proxy",
-  //   },
-  // },
-  runtimeConfig: {
-    public: {
-      apiBase: "http://localhost:3333/api",
+  routeRules: {
+    "/api-proxy/**": {
+      proxy: { to: "http://preprod-edumapper.koodev.fr/api/**" },
     },
   },
+
+  runtimeConfig: {
+    public: {
+      apiBase: "/api-proxy",
+    },
+  },
+  // runtimeConfig: {
+  //   public: {
+  //     apiBase: "http://localhost:3333/api",
+  //   },
+  // },
 });

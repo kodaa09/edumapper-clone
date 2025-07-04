@@ -161,7 +161,10 @@ const onSubmit = handleSubmit(() => {
       </button>
     </form>
     <div v-if="!props.cardOpen">
-      <p v-if="useAdmissionStore()?.admission?.classes">
+      <p
+        class="text-sm font-bold"
+        v-if="useAdmissionStore()?.admission?.classes"
+      >
         {{ useAdmissionStore().admission?.classes?.name }} -
         {{ useAdmissionStore().admission?.classes?.bac }}
       </p>
