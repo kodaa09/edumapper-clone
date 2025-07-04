@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAdmissionStore } from "~/store/admission";
+
 const isOpen = ref(false);
 const schools = ref<School[]>([]);
 const searchText = ref("");
@@ -39,6 +41,17 @@ onMounted(async () => {
     console.error(response?.message);
   }
 });
+
+const handleAdmission = (school: School) => {
+  useAdmissionStore().updateAdmission({
+    school: {
+      name: school.name,
+      city: school.city,
+      type: school.type,
+    },
+  });
+  navigateTo(`/admission/${school.id}`);
+};
 </script>
 
 <template>
@@ -70,16 +83,15 @@ onMounted(async () => {
         {{ filteredSchools.length }} Lycées disponibles
       </p>
       <div class="flex flex-col gap-2">
-        <NuxtLink
+        <button
           v-for="school in filteredSchools"
           :key="school.id"
-          :to="`/admission/${school.id}`"
-          class="cursor-pointer items-center gap-3 rounded-lg p-2 transition-colors hover:bg-text-input focus:bg-text-input focus:outline-none py-3"
-          @click="isOpen = false"
+          class="text-left cursor-pointer gap-3 rounded-lg p-2 transition-colors hover:bg-text-input focus:bg-text-input focus:outline-none py-3"
+          @click="handleAdmission(school)"
         >
           <p class="text-sm font-bold">{{ school.name }}</p>
           <p class="text-xs text-gray-500">{{ school.city }}</p>
-        </NuxtLink>
+        </button>
       </div>
     </div>
   </div>
