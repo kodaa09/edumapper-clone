@@ -2,6 +2,20 @@
 const isOpen = ref(false);
 const schools = ref<School[]>([]);
 const searchText = ref("");
+const blurTimeout = ref<NodeJS.Timeout | null>(null);
+
+const handleBlur = () => {
+  blurTimeout.value = setTimeout(() => {
+    isOpen.value = false;
+  }, 150);
+};
+
+const handleFocus = () => {
+  if (blurTimeout.value) {
+    clearTimeout(blurTimeout.value);
+  }
+  isOpen.value = true;
+};
 
 const filteredSchools = computed(() => {
   if (!searchText.value.trim()) {
@@ -32,7 +46,7 @@ onMounted(async () => {
     <h1
       class="mx-auto mb-6 mt-8 max-w-3xl text-center text-[32px] font-bold leading-[40px] tracking-[-0.64px] text-second-color md:mb-8 md:mt-0 md:text-[40px] md:leading-[48px] md:tracking-[-0.8px]"
     >
-      Réponds à quelques questions pour voir tes chances d’admission
+      Réponds à quelques questions pour voir tes chances d'admission
     </h1>
   </div>
   <div class="mx-auto max-w-[560px]">
@@ -44,8 +58,8 @@ onMounted(async () => {
         type="text"
         class="w-full bg-transparent outline-none rounded-full px-4 py-2 pl-5"
         placeholder="Trouve et sélectionne ton lycée..."
-        @focus="isOpen = true"
-        @blur="isOpen = false"
+        @focus="handleFocus"
+        @blur="handleBlur"
       />
     </div>
     <div
@@ -56,10 +70,16 @@ onMounted(async () => {
         {{ filteredSchools.length }} Lycées disponibles
       </p>
       <div class="flex flex-col gap-2">
-        <div v-for="school in filteredSchools" :key="school.id">
+        <NuxtLink
+          v-for="school in filteredSchools"
+          :key="school.id"
+          :to="`/admission/${school.id}`"
+          class="cursor-pointer items-center gap-3 rounded-lg p-2 transition-colors hover:bg-text-input focus:bg-text-input focus:outline-none py-3"
+          @click="isOpen = false"
+        >
           <p class="text-sm font-bold">{{ school.name }}</p>
           <p class="text-xs text-gray-500">{{ school.city }}</p>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div>
