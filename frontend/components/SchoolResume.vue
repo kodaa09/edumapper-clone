@@ -16,7 +16,9 @@ const onUpdateSchool = () => {
     <h1 class="text-xl font-bold">{{ admissionSchool?.name }}</h1>
     <div class="flex w-full flex-row flex-wrap gap-2">
       <p class="mt-2 text-sm leading-[16px]">{{ admissionSchool?.city }}</p>
-      <p class="mt-2 text-sm leading-[16px]">{{ admissionSchool?.type }}</p>
+      <p class="mt-2 text-sm leading-[16px]">
+        {{ admissionSchool?.type === "public" ? "Public" : "Privé" }}
+      </p>
     </div>
     <div class="mt-6 flex items-center"></div>
     <button

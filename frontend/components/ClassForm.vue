@@ -29,11 +29,11 @@ const onSubmit = handleSubmit(() => {
 <template>
   <div>
     <form class="mt-6" @submit="onSubmit" v-if="props.cardOpen">
-      <div class="flex flex-row gap-2">
+      <div class="button-box flex gap-3 flex-wrap sm:flex-nowrap">
         <label
           for="seconde"
           :class="[
-            'rounded-full p-2 text-base transition-colors sm:px-6 w-4/12 border border-black cursor-pointer text-center',
+            'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
             classValue === 'seconde'
               ? 'bg-[#F7F3F0] border-0'
               : 'bg-white-medium',
@@ -52,7 +52,7 @@ const onSubmit = handleSubmit(() => {
         <label
           for="premiere"
           :class="[
-            'rounded-full p-2 text-base transition-colors sm:px-6 w-4/12 border border-black cursor-pointer text-center',
+            'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
             classValue === 'premiere'
               ? 'bg-[#F7F3F0] border-0'
               : 'bg-white-medium',
@@ -71,7 +71,7 @@ const onSubmit = handleSubmit(() => {
         <label
           for="terminale"
           :class="[
-            'rounded-full p-2 text-base transition-colors sm:px-6 w-4/12 border border-black cursor-pointer text-center',
+            'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
             classValue === 'terminale'
               ? 'bg-[#F7F3F0] border-0'
               : 'bg-white-medium',
@@ -92,11 +92,11 @@ const onSubmit = handleSubmit(() => {
       <div class="mb-6">
         <h2 class="text-sm font-bold mb-6">Type de bac</h2>
         <div>
-          <div class="flex flex-row gap-2">
+          <div class="button-box flex gap-3 flex-wrap sm:flex-nowrap">
             <label
               for="general"
               :class="[
-                'rounded-full p-2 text-base transition-colors sm:px-6 w-4/12 border border-black cursor-pointer text-center',
+                'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
                 bacValue === 'general'
                   ? 'bg-[#F7F3F0] border-0'
                   : 'bg-white-medium',
@@ -115,7 +115,7 @@ const onSubmit = handleSubmit(() => {
             <label
               for="technologique"
               :class="[
-                'rounded-full p-2 text-base transition-colors sm:px-6 w-4/12 border border-black cursor-pointer text-center',
+                'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
                 bacValue === 'technologique'
                   ? 'bg-[#F7F3F0] border-0'
                   : 'bg-white-medium',
@@ -134,7 +134,7 @@ const onSubmit = handleSubmit(() => {
             <label
               for="professionnel"
               :class="[
-                'rounded-full p-2 text-base transition-colors sm:px-6 w-4/12 border border-black cursor-pointer text-center',
+                'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
                 bacValue === 'professionnel'
                   ? 'bg-[#F7F3F0] border-0'
                   : 'bg-white-medium',
