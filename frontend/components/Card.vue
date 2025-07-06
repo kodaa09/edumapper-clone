@@ -21,7 +21,8 @@ const toggleOpen = () => {
     <div class="flex justify-between items-center">
       <h1>{{ isOpen ? titleOpen : title }}</h1>
       <button @click="toggleOpen" class="cursor-pointer">
-        <Icon name="mdi:pencil" />
+        <Icon v-if="!isOpen" name="mdi:pencil" class="w-6 h-6" />
+        <Icon v-else name="mdi:close" class="w-6 h-6" />
       </button>
     </div>
     <slot />
