@@ -7,7 +7,19 @@ definePageMeta({
   middleware: "auth",
 });
 
+onMounted(() => {
+  if (!admissionStore.admission) {
+    const admission = localStorage.getItem("admission");
+    if (admission) {
+      admissionStore.admission = JSON.parse(admission);
+    } else {
+      navigateTo("/");
+    }
+  }
+});
+
 const capitalizeFirstLetter = (str) => {
+  if (!str) return "";
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 </script>

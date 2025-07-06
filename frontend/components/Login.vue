@@ -29,7 +29,13 @@ const onSubmit = handleSubmit(async (values) => {
 
   try {
     await authStore.authenticate(values);
-    navigateTo("/");
+    const redirect = sessionStorage.getItem("redirectAfterLogin");
+    if (redirect) {
+      navigateTo(redirect);
+      sessionStorage.removeItem("redirectAfterLogin");
+    } else {
+      navigateTo("/");
+    }
   } catch (error) {
     console.log(error);
   }

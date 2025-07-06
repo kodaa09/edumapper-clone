@@ -5,6 +5,9 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   const me = await authStore.me();
 
   if (!me) {
+    if (to.path === "/admission/result") {
+      sessionStorage.setItem("redirectAfterLogin", "/admission/result");
+    }
     return navigateTo("/auth");
   }
 });
