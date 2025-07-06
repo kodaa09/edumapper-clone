@@ -30,7 +30,7 @@ const capitalizeFirstLetter = (str) => {
           {{ capitalizeFirstLetter(admissionStore?.admission?.school?.type) }}
         </p>
       </div>
-      <div class="mb-6">
+      <div>
         <p class="text-sm font-bold mb-2">
           <span class="text-gray-500 font-normal">Bac</span>
           {{ capitalizeFirstLetter(admissionStore?.admission?.classes?.bac) }}
@@ -42,7 +42,7 @@ const capitalizeFirstLetter = (str) => {
       </div>
       <div
         v-if="admissionStore?.admission?.specialities"
-        class="text-sm font-bold"
+        class="text-sm font-bold mt-6"
       >
         <p class="text-md mb-2">Spécialités</p>
         <div class="flex flex-wrap gap-2">
@@ -60,7 +60,7 @@ const capitalizeFirstLetter = (str) => {
       </div>
       <p
         v-if="admissionStore?.admission?.bac?.type"
-        class="text-sm font-bold mb-2"
+        class="text-sm font-bold mb-2 mt-6"
       >
         <span class="text-gray-500 font-normal">Bac</span>
         {{ admissionStore?.admission?.bac?.type.toUpperCase() }}

@@ -14,7 +14,7 @@ const emit = defineEmits(["close"]);
 const { handleSubmit } = useForm();
 const admissionStore = useAdmissionStore();
 const classValue = ref("seconde");
-const bacValue = ref("general");
+const bacValue = ref("professionnel");
 
 onMounted(() => {
   setClasses();
@@ -49,10 +49,10 @@ const capitalizeFirstLetter = (str) => {
         <label
           for="seconde"
           :class="[
-            'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
+            'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
             classValue === 'seconde'
-              ? 'bg-[#F7F3F0] border-0'
-              : 'bg-white-medium',
+              ? 'bg-white-medium border-black'
+              : 'bg-[#F7F3F0]',
           ]"
         >
           <input
@@ -68,10 +68,10 @@ const capitalizeFirstLetter = (str) => {
         <label
           for="premiere"
           :class="[
-            'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
+            'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
             classValue === 'premiere'
-              ? 'bg-[#F7F3F0] border-0'
-              : 'bg-white-medium',
+              ? 'bg-white-medium border-black'
+              : 'bg-[#F7F3F0]',
           ]"
         >
           <input
@@ -87,10 +87,10 @@ const capitalizeFirstLetter = (str) => {
         <label
           for="terminale"
           :class="[
-            'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
+            'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
             classValue === 'terminale'
-              ? 'bg-[#F7F3F0] border-0'
-              : 'bg-white-medium',
+              ? 'bg-white-medium border-black'
+              : 'bg-[#F7F3F0]',
           ]"
         >
           <input
@@ -112,10 +112,10 @@ const capitalizeFirstLetter = (str) => {
             <label
               for="general"
               :class="[
-                'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
+                'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
                 bacValue === 'general'
-                  ? 'bg-[#F7F3F0] border-0'
-                  : 'bg-white-medium',
+                  ? 'bg-white-medium border-black'
+                  : 'bg-[#F7F3F0]',
               ]"
             >
               <input
@@ -131,10 +131,10 @@ const capitalizeFirstLetter = (str) => {
             <label
               for="technologique"
               :class="[
-                'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
+                'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
                 bacValue === 'technologique'
-                  ? 'bg-[#F7F3F0] border-0'
-                  : 'bg-white-medium',
+                  ? 'bg-white-medium border-black'
+                  : 'bg-[#F7F3F0]',
               ]"
             >
               <input
@@ -150,10 +150,10 @@ const capitalizeFirstLetter = (str) => {
             <label
               for="professionnel"
               :class="[
-                'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-black cursor-pointer text-center',
+                'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
                 bacValue === 'professionnel'
-                  ? 'bg-[#F7F3F0] border-0'
-                  : 'bg-white-medium',
+                  ? 'bg-white-medium border-black'
+                  : 'bg-[#F7F3F0]',
               ]"
             >
               <input
