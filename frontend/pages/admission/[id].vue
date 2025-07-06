@@ -13,6 +13,10 @@ const title = computed(() => {
   }
   return "Sélectionne tes spécialités";
 });
+
+const showResult = () => {
+  navigateTo("/admission/result");
+};
 </script>
 
 <template>
@@ -55,6 +59,16 @@ const title = computed(() => {
         :card-open="isTechnoChoicesOpen"
       />
     </Card>
-    {{ admissionStore?.admission }}
+    <button
+      class="button relative inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 duration-200 text-base px-4 py-2 rounded-full border border-black bg-black text-white h-[46px] w-full cursor-pointer"
+      @click="showResult"
+      v-if="
+        admissionStore?.admission?.bac?.type ||
+        admissionStore?.admission?.specialities ||
+        admissionStore?.admission?.classes?.bac === 'professionnel'
+      "
+    >
+      Afficher le resultat
+    </button>
   </div>
 </template>

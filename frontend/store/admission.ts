@@ -9,16 +9,19 @@ export const useAdmissionStore = defineStore("admission", () => {
       admission.value = {} as Admission;
     }
     admission.value = { ...admission.value, ...updates };
+    localStorage.setItem("admission", JSON.stringify(admission.value));
   };
 
   const resetAdmission = () => {
     admission.value = null;
+    localStorage.removeItem("admission");
   };
 
   const deleteBac = () => {
     if (admission.value) {
       const { bac, specialities, ...rest } = admission.value;
       admission.value = { ...rest } as Admission;
+      localStorage.setItem("admission", JSON.stringify(admission.value));
     }
   };
 
@@ -26,6 +29,7 @@ export const useAdmissionStore = defineStore("admission", () => {
     if (admission.value) {
       const { specialities, ...rest } = admission.value;
       admission.value = { ...rest } as Admission;
+      localStorage.setItem("admission", JSON.stringify(admission.value));
     }
   };
 

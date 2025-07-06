@@ -14,7 +14,7 @@ const emit = defineEmits(["close"]);
 const { handleSubmit } = useForm();
 const admissionStore = useAdmissionStore();
 const classValue = ref("seconde");
-const bacValue = ref("professionnel");
+const bacValue = ref("general");
 
 onMounted(() => {
   setClasses();

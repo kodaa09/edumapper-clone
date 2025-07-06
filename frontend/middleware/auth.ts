@@ -5,6 +5,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   const me = await authStore.me();
 
   if (!me) {
-    return navigateTo("/login");
+    return navigateTo("/auth");
   }
 });

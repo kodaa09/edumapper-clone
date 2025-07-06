@@ -20,7 +20,7 @@ const authStore = useAuthStore();
     <div v-if="!authStore.user">
       <NuxtLink
         to="/auth"
-        class="bg-primary text-black border rounded-full border-gray-300 px-6 py-3 text-lg hover:brightness-90 transition-colors duration-200"
+        class="bg-primary text-black border rounded-full border-gray-300 px-6 py-3 text-md hover:brightness-90 transition-colors duration-200"
       >
         Connexion
       </NuxtLink>
@@ -30,7 +30,7 @@ const authStore = useAuthStore();
         {{ authStore.user?.fullName }}
       </p>
       <button
-        class="bg-primary text-black border rounded-full border-gray-300 px-6 py-3 text-lg hover:brightness-90 transition-colors duration-200 cursor-pointer"
+        class="bg-primary text-md text-black border rounded-full border-gray-300 px-6 py-3 hover:brightness-90 transition-colors duration-200 cursor-pointer"
         @click="authStore.logout"
       >
         Déconnexion
