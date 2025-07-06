@@ -50,9 +50,7 @@ const capitalizeFirstLetter = (str) => {
           for="seconde"
           :class="[
             'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
-            classValue === 'seconde'
-              ? 'bg-white-medium border-black'
-              : 'bg-[#F7F3F0]',
+            classValue === 'seconde' ? 'bg-white border-black' : 'bg-[#F7F3F0]',
           ]"
         >
           <input
@@ -70,7 +68,7 @@ const capitalizeFirstLetter = (str) => {
           :class="[
             'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
             classValue === 'premiere'
-              ? 'bg-white-medium border-black'
+              ? 'bg-white border-black'
               : 'bg-[#F7F3F0]',
           ]"
         >
@@ -89,7 +87,7 @@ const capitalizeFirstLetter = (str) => {
           :class="[
             'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
             classValue === 'terminale'
-              ? 'bg-white-medium border-black'
+              ? 'bg-white border-black'
               : 'bg-[#F7F3F0]',
           ]"
         >
@@ -114,7 +112,7 @@ const capitalizeFirstLetter = (str) => {
               :class="[
                 'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
                 bacValue === 'general'
-                  ? 'bg-white-medium border-black'
+                  ? 'bg-white border-black'
                   : 'bg-[#F7F3F0]',
               ]"
             >
@@ -133,7 +131,7 @@ const capitalizeFirstLetter = (str) => {
               :class="[
                 'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
                 bacValue === 'technologique'
-                  ? 'bg-white-medium border-black'
+                  ? 'bg-white border-black'
                   : 'bg-[#F7F3F0]',
               ]"
             >
@@ -152,7 +150,7 @@ const capitalizeFirstLetter = (str) => {
               :class="[
                 'rounded-full p-2 text-base transition-colors sm:px-6 w-5/12 sm:w-4/12 border border-[#F7F3F0] cursor-pointer text-center',
                 bacValue === 'professionnel'
-                  ? 'bg-white-medium border-black'
+                  ? 'bg-white border-black'
                   : 'bg-[#F7F3F0]',
               ]"
             >

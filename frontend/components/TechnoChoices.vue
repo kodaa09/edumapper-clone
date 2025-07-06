@@ -49,7 +49,9 @@ const onSubmit = () => {
         <label
           class="rounded-full p-2 text-base transition-colors cursor-pointer text-center bg-[#F7F3F0] w-5/12 sm:w-4/12 border border-[#F7F3F0]"
           :class="{
-            'border border-black': selectedChoices.includes(choice.value),
+            'border border-black bg-white': selectedChoices.includes(
+              choice.value
+            ),
           }"
           v-for="choice in choices"
           :key="choice.value"
