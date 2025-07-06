@@ -32,6 +32,9 @@ const setClasses = () => {
       bac: bacValue.value,
     },
   });
+
+  admissionStore.deleteBac();
+  admissionStore.deleteSpecialities();
 };
 
 const capitalizeFirstLetter = (str) => {
@@ -173,9 +176,12 @@ const capitalizeFirstLetter = (str) => {
         Confirmer
       </button>
     </form>
-    <div v-if="!props.cardOpen">
-      <p class="text-sm font-bold" v-if="admissionStore?.admission?.classes">
-        {{ capitalizeFirstLetter(admissionStore?.admission?.classes?.name) }}
+    <div v-else>
+      <p
+        class="text-sm text-gray-500"
+        v-if="admissionStore?.admission?.classes"
+      >
+        En {{ capitalizeFirstLetter(admissionStore?.admission?.classes?.name) }}
         -
         {{ capitalizeFirstLetter(admissionStore?.admission?.classes?.bac) }}
       </p>

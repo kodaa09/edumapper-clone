@@ -1,17 +1,18 @@
 <script setup>
+import ClasseChoices from "~/components/ClasseChoices.vue";
 import { useAdmissionStore } from "~/store/admission";
+
+const admissionStore = useAdmissionStore();
 const isClassesOpen = ref(true);
+const isGeneralChoicesOpen = ref(true);
+const isTechnoChoicesOpen = ref(true);
 
 const title = computed(() => {
-  if (useAdmissionStore().admission?.classes?.bac === "technologique") {
+  if (admissionStore?.admission?.classes?.bac === "technologique") {
     return "Sélectionne ton type de bac";
   }
   return "Sélectionne tes spécialités";
 });
-
-const onSubmit = () => {
-  console.log("submit");
-};
 </script>
 
 <template>
@@ -23,26 +24,37 @@ const onSubmit = () => {
       :is-open="isClassesOpen"
       @update:isOpen="isClassesOpen = $event"
     >
-      <ClassForm @close="isClassesOpen = false" :card-open="isClassesOpen" />
+      <ClasseChoices
+        @close="isClassesOpen = false"
+        :card-open="isClassesOpen"
+      />
     </Card>
     <Card
       :title="title"
       :title-open="title"
-      v-if="useAdmissionStore().admission?.classes?.bac !== 'professionnel'"
+      :is-open="
+        admissionStore?.admission?.classes?.bac === 'general'
+          ? isGeneralChoicesOpen
+          : isTechnoChoicesOpen
+      "
+      @update:isOpen="
+        admissionStore?.admission?.classes?.bac === 'general'
+          ? (isGeneralChoicesOpen = $event)
+          : (isTechnoChoicesOpen = $event)
+      "
+      v-if="admissionStore?.admission?.classes?.bac !== 'professionnel'"
     >
-      <div v-if="useAdmissionStore().admission?.classes?.bac === 'general'">
-        <p>Spécialités de terminale</p>
-        <p>Choisis 2 spécialités. Pour en désélectionner une, clique dessus.</p>
-        <form class="flex flex-col gap-2" @submit.prevent="onSubmit">
-          <p>Arts</p>
-          <p>Sciences</p>
-          <p>Sciences Economiques et Sociales</p>
-          <button type="submit">Confirmer</button>
-        </form>
-      </div>
-      <div v-else>
-        <p>Sélectionne tes spécialités zz</p>
-      </div>
+      <GeneralChoices
+        v-if="admissionStore?.admission?.classes?.bac === 'general'"
+        @close="isGeneralChoicesOpen = false"
+        :card-open="isGeneralChoicesOpen"
+      />
+      <TechnoChoices
+        v-else
+        @close="isTechnoChoicesOpen = false"
+        :card-open="isTechnoChoicesOpen"
+      />
     </Card>
+    {{ admissionStore?.admission }}
   </div>
 </template>

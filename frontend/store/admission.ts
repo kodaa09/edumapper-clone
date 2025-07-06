@@ -15,10 +15,26 @@ export const useAdmissionStore = defineStore("admission", () => {
     admission.value = null;
   };
 
+  const deleteBac = () => {
+    if (admission.value) {
+      const { bac, specialities, ...rest } = admission.value;
+      admission.value = { ...rest } as Admission;
+    }
+  };
+
+  const deleteSpecialities = () => {
+    if (admission.value) {
+      const { specialities, ...rest } = admission.value;
+      admission.value = { ...rest } as Admission;
+    }
+  };
+
   return {
     admission,
     updateAdmission,
     resetAdmission,
+    deleteBac,
+    deleteSpecialities,
   };
 });
 
@@ -32,11 +48,8 @@ type Admission = {
     name: string;
     bac: string;
   };
-  average: {
-    rating: number;
-    ranking: number;
-  };
   bac: {
-    rating: number;
+    type: string;
   };
+  specialities: string[];
 };

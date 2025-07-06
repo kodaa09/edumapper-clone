@@ -10,7 +10,11 @@ onMounted(async () => {
 
     if (response?.status === "success" && response.data) {
       useAdmissionStore().updateAdmission({
-        school: response.data,
+        school: {
+          name: response.data.name,
+          city: response.data.city,
+          type: response.data.type,
+        },
       });
     }
   }
