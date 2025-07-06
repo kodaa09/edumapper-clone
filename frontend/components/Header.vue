@@ -30,10 +30,13 @@ const authStore = useAuthStore();
         {{ authStore.user?.fullName }}
       </p>
       <button
-        class="bg-primary text-md text-black border rounded-full border-gray-300 px-6 py-3 hover:brightness-90 transition-colors duration-200 cursor-pointer"
+        class="bg-primary text-md text-black border rounded-full border-gray-300 px-6 py-3 hover:brightness-90 transition-colors duration-200 cursor-pointer hidden sm:block"
         @click="authStore.logout"
       >
         Déconnexion
+      </button>
+      <button class="sm:hidden" @click="authStore.logout">
+        <Icon name="mdi:logout" class="w-6 h-6" />
       </button>
     </div>
   </div>
