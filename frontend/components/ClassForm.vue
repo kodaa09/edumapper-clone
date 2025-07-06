@@ -12,18 +12,31 @@ const props = defineProps({
 const emit = defineEmits(["close"]);
 
 const { handleSubmit } = useForm();
+const admissionStore = useAdmissionStore();
 const classValue = ref("seconde");
 const bacValue = ref("professionnel");
 
+onMounted(() => {
+  setClasses();
+});
+
 const onSubmit = handleSubmit(() => {
-  useAdmissionStore().updateAdmission({
+  setClasses();
+  emit("close");
+});
+
+const setClasses = () => {
+  admissionStore.updateAdmission({
     classes: {
       name: classValue.value,
       bac: bacValue.value,
     },
   });
-  emit("close");
-});
+};
+
+const capitalizeFirstLetter = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
 </script>
 
 <template>
@@ -161,12 +174,10 @@ const onSubmit = handleSubmit(() => {
       </button>
     </form>
     <div v-if="!props.cardOpen">
-      <p
-        class="text-sm font-bold"
-        v-if="useAdmissionStore()?.admission?.classes"
-      >
-        {{ useAdmissionStore().admission?.classes?.name }} -
-        {{ useAdmissionStore().admission?.classes?.bac }}
+      <p class="text-sm font-bold" v-if="admissionStore?.admission?.classes">
+        {{ capitalizeFirstLetter(admissionStore?.admission?.classes?.name) }}
+        -
+        {{ capitalizeFirstLetter(admissionStore?.admission?.classes?.bac) }}
       </p>
       <p class="text-sm text-gray-500" v-else>Aucune classe sélectionnée</p>
     </div>
